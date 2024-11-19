@@ -55,10 +55,16 @@ btnShow.addEventListener('click', () => {
 let inputName = document.querySelector('#inputName');
 let inputNumber = document.querySelector('#inputNumber');
 let btnAdd = document.querySelector('#btnAdd');
+let btnDelete = document.querySelector('#btnDelete');
 
 btnAdd.addEventListener('click', () => {
     rubrica.addContact(inputName.value, inputNumber.value);
     console.log(rubrica.contacts);
+    rubrica.showContacts();
+})
+
+btnDelete.addEventListener('click', () => {
+    rubrica.contacts = rubrica.contacts.filter((contact) => contact.nome!== inputName.value);
     rubrica.showContacts();
 })
 
